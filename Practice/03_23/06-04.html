@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button :style="[myColor, myLayout]">버튼1</button>
+    </div>
+    <script src="http://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'APP',
+        data() {
+          return {
+            myColor: {
+              backgroundColor: 'purple',
+              color: 'yellow',
+            },
+            myLayout: {
+              width: '150px',
+              height: '80px',
+              testAlign: 'center',
+            },
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
