@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      cur: null, //현재 입력값
+      cur: '', //현재 입력값
       output: '', //화면 출력값
     };
   },
@@ -11,9 +11,53 @@ export default {
       // console.log('click');
       const n = event.currentTarget.value;
       this.cur = this.cur === null ? n : (this.cur += n);
+
+      //C버튼  reset  => cur , output
+      if (n === 'C') {
+        this.cur = '';
+        this.output = '';
+        return;
+      }
+      // = 버튼
+      if (n === '=') {
+        this.calculate();
+        return;
+      }
+
+      // 숫자, 연산자, .  확인
+
       this.output = this.cur;
-      //console.log(n);
-      //화면출력 output input text
+    },
+    calculate() {
+      let operator = '';
+
+      // cur 안에 연산자를 찾기
+      if (this.cur.includes('+')) {
+        operator = '+';
+      } else if (this.cur.includes('*')) {
+        operator = '*';
+      } else if (this.cur.includes('-')) {
+        operator = '-';
+      } else if (this.cur.includes('/')) {
+        operator = '/';
+      } else {
+        return;
+      }
+
+      //연산자를 기준으로 문자열 분리  split()
+      const parts = this.cur.split(operator);
+      const left = Number(parts[0]);
+      const right = Number(parts[1]);
+      //연산 결과값을 저장할 변수 선언 : result =>초기화
+      let result = 0;
+
+      if (operator === '+') {
+        result = left + right;
+      } else if (operator === '-') {
+      }
+
+      this.output = String(result);
+      this.cur = String(result);
     },
   },
 };
