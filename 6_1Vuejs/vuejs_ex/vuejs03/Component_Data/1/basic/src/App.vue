@@ -1,4 +1,26 @@
+<!-- 
+    컴포넌트에 속성과 이벤트 정의 방법
+    컴포넌트에 속성정의 => 사용자 정의 속성
+    컴포넌트에 이벤트정의 => 사용자 정의 이벤트
+    사용자 정의 속성을 이용해서 해당 컴포넌트에 원하는값을 전달 할 수 있다.
+    UserProfile 컴포넌트의  name 속성과 age 속성을 정의하고
+    UserProfile 컴포너너트로 사용자 정의 속성(name, age)의 값 전달
+  -->
 <script>
-export default {};
+import UserProfile from './components/UserProfile.vue';
+export default {
+  components: {
+    UserProfile,
+  },
+  data() {
+    return {
+      name: '김나박a',
+      age: 20,
+    };
+  },
+};
 </script>
-<template></template>
+<template>
+  <!-- 사용자 정의 속성값 name, age UserProfile에게 전달 -->
+  <UserProfile :name="name" :age="age" />
+</template>

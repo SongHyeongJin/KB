@@ -2,7 +2,6 @@
 export default {
   data() {
     return {
-<<<<<<< HEAD
       cur: null, //현재 입력값
       output: null, //화면 출력값
       prev: null,
@@ -100,104 +99,10 @@ export default {
             return left / right;
           }
       }
-=======
-      cur: '',
-      output: '',
-    };
-  },
-  methods: {
-    isOperator(value) {
-      return value === '+' || value === '-' || value === '*' || value === '/';
-    },
-
-    operation(event) {
-      const n = event.currentTarget.value;
-
-      // C 버튼
-      if (n === 'C') {
-        this.cur = '';
-        this.output = '';
-        return;
-      }
-
-      // = 버튼
-      if (n === '=') {
-        this.calculate();
-        return;
-      }
-
-      // 현재 마지막 문자
-      const lastChar = this.cur[this.cur.length - 1];
-
-      // 연산자 중복 입력 방지
-      if (this.isOperator(n)) {
-        // 아무것도 입력되지 않은 상태에서 연산자 입력 막기
-        if (this.cur === '') {
-          return;
-        }
-
-        // 마지막 문자도 연산자라면, 마지막 연산자를 새 연산자로 교체
-        if (this.isOperator(lastChar)) {
-          this.cur = this.cur.slice(0, -1) + n;
-          this.output = this.cur;
-          return;
-        }
-      }
-
-      // 일반 입력
-      this.cur += n;
-      this.output = this.cur;
-    },
-
-    calculate() {
-      let operator = '';
-
-      if (this.cur.includes('+')) {
-        operator = '+';
-      } else if (this.cur.includes('-')) {
-        operator = '-';
-      } else if (this.cur.includes('*')) {
-        operator = '*';
-      } else if (this.cur.includes('/')) {
-        operator = '/';
-      } else {
-        return;
-      }
-
-      const parts = this.cur.split(operator);
-
-      const left = Number(parts[0]);
-      const right = Number(parts[1]);
-
-      if (parts[0] === '' || parts[1] === '') {
-        return;
-      }
-
-      let result = 0;
-
-      if (operator === '+') {
-        result = left + right;
-      } else if (operator === '-') {
-        result = left - right;
-      } else if (operator === '*') {
-        result = left * right;
-      } else if (operator === '/') {
-        if (right === 0) {
-          this.output = '오류';
-          this.cur = '';
-          return;
-        }
-        result = left / right;
-      }
-
-      this.cur = String(result);
-      this.output = String(result);
->>>>>>> 61189cf75424e725c002c05f0fcf79faf6e9924e
     },
   },
 };
 </script>
-<<<<<<< HEAD
 <template>
   <div class="calculator">
     <form name="forms">
@@ -243,39 +148,11 @@ export default {
         @click="handleNumberInput($event)"
       />
       <input type="button" value="0" @click="handleNumberInput($event)" />
-=======
-
-<template>
-  <div class="calculator">
-    <form name="forms">
-      <input type="text" v-model="output" name="output" readonly />
-
-      <input type="button" class="clear" value="C" @click="operation" />
-      <input type="button" class="operator" value="/" @click="operation" />
-      <input type="button" value="1" @click="operation" />
-      <input type="button" value="2" @click="operation" />
-      <input type="button" value="3" @click="operation" />
-      <input type="button" class="operator" value="*" @click="operation" />
-      <input type="button" value="4" @click="operation" />
-      <input type="button" value="5" @click="operation" />
-      <input type="button" value="6" @click="operation" />
-      <input type="button" class="operator" value="+" @click="operation" />
-      <input type="button" value="7" @click="operation" />
-      <input type="button" value="8" @click="operation" />
-      <input type="button" value="9" @click="operation" />
-      <input type="button" class="operator" value="-" @click="operation" />
-      <input type="button" class="dot" value="." @click="operation" />
-      <input type="button" value="0" @click="operation" />
->>>>>>> 61189cf75424e725c002c05f0fcf79faf6e9924e
       <input
         type="button"
         class="operator result"
         value="="
-<<<<<<< HEAD
         @click="handleEqual($event)"
-=======
-        @click="operation"
->>>>>>> 61189cf75424e725c002c05f0fcf79faf6e9924e
       />
     </form>
   </div>
