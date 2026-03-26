@@ -6,6 +6,13 @@ export default {
   //   },
   // },
 };
+export default {
+  // methods: {
+  //   parentEventCall() {
+  //     this.$emit('print-hello', '영희', 15);
+  //   },
+  // },
+};
 </script>
 <template>
   <!-- <p>이름: {{ name }}</p>

@@ -19,3 +19,6 @@ export default {
 <template>
   <UserProfile @print-hello="printHello" />
 </template>
+<template>
+  <UserProfile @print-hello="printHello" />
+</template>

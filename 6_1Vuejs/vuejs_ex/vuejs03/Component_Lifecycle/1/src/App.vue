@@ -1,6 +1,9 @@
 <script>
 import FirstChild from './components/FirstChild.vue';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 259cbabf4b327fba3eed75a6ba1de84659df2a79
 export default {
   //Options API
   components: {
@@ -11,6 +14,10 @@ export default {
       visible: true,
     };
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 259cbabf4b327fba3eed75a6ba1de84659df2a79
   beforeCreate() {
     console.log('1');
   },
