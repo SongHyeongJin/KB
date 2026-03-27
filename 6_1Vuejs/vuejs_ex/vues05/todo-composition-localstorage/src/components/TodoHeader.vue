@@ -9,10 +9,19 @@
 
 <script setup>
 // 부모 컴포넌트에서 전달받는 props를 선언한다.
-
+const props = defineProps({
+  current: {
+    type: String,
+    default: 'all', //기본값은 전체 보기 'all'
+  },
+});
 // 부모로 전달할 수 있는 사용자 정의 이벤트를 선언한다.
+const emit = defineEmits(['update-tab']);
 
 // updateTab 함수는 클릭한 탭 값을 부모에게 전달한다.
+const updateTab = (tab) => {
+  emit('update-tab', tab);
+};
 </script>
 
 <template>
@@ -24,9 +33,18 @@
     </p>
 
     <ul class="todo-tab">
-      <li>전체</li>
-
-      <li>완료</li>
+      <li
+        :class="{ 'todo-tab--active': props.current === 'all' }"
+        @click="updateTab('all')"
+      >
+        전체
+      </li>
+      <li
+        :class="{ 'todo-tab--active': props.current === 'completed' }"
+        @click="updateTab('completed')"
+      >
+        완료
+      </li>
     </ul>
   </header>
 </template>

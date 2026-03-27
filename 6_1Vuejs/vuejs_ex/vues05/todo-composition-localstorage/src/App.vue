@@ -49,16 +49,19 @@ const remainingCount = computed(() => {
   return todo.value.filter((item) => !item.completed).length;
 });
 
-// addTodo는 입력받은 문자열을 새 할 일 객체로 만들어 목록에 추가한다.
+// addTodo는 입력받은 문자열을 새 할 일 객체로 만들어 목록에 추가한다. 입력값의 유효성 검사
 const addTodo = (inputMsg) => {
   // 공백만 입력한 경우에는 추가하지 않고 함수를 종료한다.
-  const trimmedMsg = inputMsg.trim();
+  const trimmedMsg = inputMsg.trim(); //" hello" -> "hello"   " " -> ""  Guard Clause 방어코드
   // 공백만 입력한 경우에는 추가하지 않고 함수를 종료한다.
   if (!trimmedMsg) return;
   // 새 할 일 객체를 생성한다.
+  const item = {
+    id: Date.now() + Math.random(),
+    msg: trimmedMsg,
+    completed: false,
+  };
 };
-
-// 새 할 일 객체를 생성한다.
 
 // updateTab은 상단 탭에서 전달받은 값을 current에 저장한다.
 
@@ -78,16 +81,16 @@ const addTodo = (inputMsg) => {
 <template>
   <div class="todo-app">
     <!-- 상단 제목과 탭 UI를 출력한다. -->
-    <TodoHeader />
+    <TodoHeader :current="current" @update-tab="updateTab" />
 
     <!-- 입력창과 등록 버튼 UI를 출력한다. -->
     <TodoInput />
 
     <!-- 할 일 통계 정보를 간단히 보여준다. -->
     <div class="todo-summary">
-      <p>전체 0개</p>
-      <p>완료 0개</p>
-      <p>남은 일 0 개</p>
+      <p>전체 {{}}개</p>
+      <p>완료 {{}}개</p>
+      <p>남은 일 {{}} 개</p>
     </div>
 
     <!-- 현재 탭에 맞는 목록을 출력한다. -->
