@@ -61,14 +61,35 @@ const addTodo = (inputMsg) => {
     msg: trimmedMsg,
     completed: false,
   };
+  //새롭게 입력된 할일은 배열에 맨앞에 추가
+  todo.value.unshift(item);
 };
 
 // updateTab은 상단 탭에서 전달받은 값을 current에 저장한다.
+const updateTab = (tab) => {
+  current.value = tab;
+};
 
 // deleteTodo는 전달받은 id와 일치하지 않는 항목만 남겨 삭제를 처리한다.
+const deleteTodo = (id) => {
+  todo.value = todo.value.filter((item) => item.id !== id);
+};
 
 // toggleTodo는 전달받은 id와 일치하는 항목의 completed 값을 true/false로 뒤집는다.
-
+const toogleTodo = (id) => {
+  todo.value = todo.value.map(
+    //현재 순회 중인 항목이 클릭한 항목이면 completed 값을 반전시킨 새 객체를 반환
+    (item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          completed: !item.completed,
+        };
+      }
+      return item; //클릭한 항목이 아니라면 기존 항목을 그대로 반환한다.
+    },
+  );
+};
 // clearCompleted는 완료된 항목을 한 번에 제거한다.
 
 // loadTodos는 localStorage에서 저장된 목록을 읽어 todo 상태에 복원한다.
@@ -77,7 +98,6 @@ const addTodo = (inputMsg) => {
 
 // todo 값이 바뀔 때마다 localStorage에 최신 상태를 문자열로 저장한다.
 </script>
-
 <template>
   <div class="todo-app">
     <!-- 상단 제목과 탭 UI를 출력한다. -->
