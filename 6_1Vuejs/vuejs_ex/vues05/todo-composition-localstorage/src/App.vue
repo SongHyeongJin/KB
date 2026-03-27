@@ -12,29 +12,51 @@
 
 <script setup>
 // Vue의 반응형 상태(ref), 계산된 상태(computed), 상태 감시(watch), 최초 실행 시점(onMounted)을 가져온다.
+import { ref, onMounted, watch, computed } from 'vue';
 
-// 상단 제목/탭 컴포넌트를 가져온다.
-
-// 목록 출력 컴포넌트를 가져온다.
-
-// 입력창 컴포넌트를 가져온다.
+// 상단 제목/탭 컴포넌트를 가져온다. TodoHeader
+import TodoHeader from './components/TodoHeader.vue';
+// 목록 출력 컴포넌트를 가져온다. TodoList
+import TodoList from './components/TodoList.vue';
+// 입력창 컴포넌트를 가져온다.TodoInput
+import TodoInput from './components/TodoInput.vue';
 
 // localStorage에 사용할 키 이름을 상수로 정의한다.
+const STORAGE_KEY = 'todo-app-composition-api';
 
 // todo는 전체 할 일 목록을 저장하는 반응형 배열이다.
+const todo = ref([]);
 
 // current는 현재 선택된 탭 상태를 저장한다.
 // all = 전체 보기, completed = 완료만 보기
+const current = ref('all');
 
 // filteredTodo는 current 값에 따라 실제 화면에 보여줄 목록을 계산한다.
+const filteredTodo = computed(() => {
+  if (current.value === 'all') {
+    return todo.value;
+  }
+  return todo.value.filter((item) => item.completed);
+});
 
 // completedCount는 완료된 할 일 개수를 계산한다.
+const completedCount = computed(() => {
+  return todo.value.filter((item) => item.completed).length;
+});
 
 // remainingCount는 아직 완료되지 않은 할 일 개수를 계산한다.
+const remainingCount = computed(() => {
+  return todo.value.filter((item) => !item.completed).length;
+});
 
 // addTodo는 입력받은 문자열을 새 할 일 객체로 만들어 목록에 추가한다.
-
-// 공백만 입력한 경우에는 추가하지 않고 함수를 종료한다.
+const addTodo = (inputMsg) => {
+  // 공백만 입력한 경우에는 추가하지 않고 함수를 종료한다.
+  const trimmedMsg = inputMsg.trim();
+  // 공백만 입력한 경우에는 추가하지 않고 함수를 종료한다.
+  if (!trimmedMsg) return;
+  // 새 할 일 객체를 생성한다.
+};
 
 // 새 할 일 객체를 생성한다.
 
