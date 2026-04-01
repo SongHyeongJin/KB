@@ -88,31 +88,6 @@ const toggleTodo = (id) => {
     },
   );
 };
-const toggleEdit = (id) => {
-  todo.value = todo.value.map((item) => {
-    if (item.id === id) {
-      return {
-        ...item,
-        isEdit: !item.isEdit,
-      };
-    }
-    return item;
-  });
-};
-const editTodo = (id, msg) => {
-  const updateMsg = msg.trim();
-  if (!updateMsg) return;
-  todo.value = todo.value.map((item) => {
-    if (item.id === id) {
-      return {
-        ...item,
-        msg: updateMsg,
-        isEdit: false,
-      };
-    }
-    return item;
-  });
-};
 // clearCompleted는 완료된 항목을 한 번에 제거한다.
 const clearCompleted = () => {
   todo.value = todo.value.filter((item) => item.completed === false);
@@ -155,8 +130,6 @@ watch(
       :items="filteredTodo"
       @delete-todo="deleteTodo"
       @toggle-todo="toggleTodo"
-      @toggle-edit="toggleEdit"
-      @edit-todo="editTodo"
     />
 
     <!-- 완료된 항목이 1개 이상 있을 때만 일괄 삭제 버튼을 보여준다. -->

@@ -13,31 +13,23 @@
 // 부모로부터 전달받는 목록 데이터를 선언한다.
 const props = defineProps({
   items: {
-    //items App.vue에서 보내준 데이터(배열)
+    //items App.vue에서 보내준 데이터 (배열)
     type: Array,
     default: () => [], //기본값은 빈 배열
   },
 });
+
 // 부모에게 보낼 이벤트를 선언한다.
-const emit = defineEmits([
-  'delete-todo',
-  'toggle-todo',
-  'toggle-edit',
-  'edit-todo',
-]);
+const emit = defineEmits(['toggle-todo', 'delete-todo']);
+
 // deleteTodo는 삭제할 항목의 id를 부모에게 전달한다.
 const deleteTodo = (id) => {
   emit('delete-todo', id);
 };
+
 // toggleTodo는 완료 상태를 바꿀 항목의 id를 부모에게 전달한다.
 const toggleTodo = (id) => {
   emit('toggle-todo', id);
-};
-const toggleEditTodo = (id) => {
-  emit('toggle-edit', id);
-};
-const editTodo = (id, msg) => {
-  emit('edit-todo', id, msg);
 };
 </script>
 
@@ -49,42 +41,20 @@ const editTodo = (id, msg) => {
 
     <div
       v-for="item in props.items"
+      class="todo-item"
       :key="item.id"
       :class="{ 'todo-item--completed': item.completed }"
-      class="todo-item"
     >
       <label class="todo-item-check-wrap">
         <input
-          :checked="item.completed"
           type="checkbox"
+          :checked="item.completed"
           @change="toggleTodo(item.id)"
         />
         <span>완료</span>
       </label>
 
-      <span class="todo-item-text" v-if="item.isEdit == false">{{
-        item.msg
-      }}</span>
-      <input
-        type="text"
-        v-else
-        :value="item.msg"
-        @keydown.enter="editTodo(item.id, $event.target.value)"
-      />
-      <button
-        class="todo-edit-btn"
-        v-if="item.isEdit == true"
-        @click="editTodo(item.id, $event.target.previousElementSibling.value)"
-      >
-        수정완료
-      </button>
-      <span
-        class="material-symbols-outlined"
-        @click="toggleEditTodo(item.id)"
-        v-else
-      >
-        edit
-      </span>
+      <span class="todo-item-text">{{ item.msg }}</span>
 
       <button class="todo-delete-btn" @click="deleteTodo(item.id)">삭제</button>
     </div>
