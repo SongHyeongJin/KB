@@ -1,4 +1,4 @@
-# Vue + Pinia 학습용 프로젝트 분석본
+# Vue + Pinia 
 
 1. **Pinia Option Store 문법**
 2. **Pinia Setup Store 문법**
