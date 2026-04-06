@@ -31,7 +31,7 @@ export const useCountOptionStore = defineStore('countOption', {
     },
 
     getJSON(url) {
-      this.increment(); // API 호출 전에 num을 1 증가시켜 동작 여부를 눈에 띄게 확인
+      this.increment(); // API 호출 전에 num을 1 증가시켜 동작 여부를 눈에 띄게 확인한다.
 
       fetch(url) // 전달받은 URL로 HTTP 요청 전송
         .then((response) => response.json()) // 응답 본문을 JSON 형태로 변환
