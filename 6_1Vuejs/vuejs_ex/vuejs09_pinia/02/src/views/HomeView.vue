@@ -1,4 +1,7 @@
-<script></script>
+<script>
+import { mapState } from 'pinia';
+import { useCountSetupStore } from '@/stores/countSetup';
+</script>
 <template>
   <h2>num: {{ num }}</h2>
 
