@@ -33,6 +33,17 @@ const postData = async () => {
     alert('등록 중 문제가 발생했습니다.');
   }
 };
+// const putData = async () => {
+//   try {
+//     const response = await axios.put('/api/data/:id', {
+//       name: `test data`,
+//       description: `Put Test`,
+//     });
+//     console.log('변경 성공', response.data);
+//   } catch (error) {
+//     console.error('변경 실패', error);
+//   }
+// };
 </script>
 
 <template>
