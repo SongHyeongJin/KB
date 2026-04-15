@@ -11,13 +11,14 @@ public class Calculator{
         number1 = 10;
         number2 = 20;
 
-        //int number = 10;
+        // int number1 = 10;
 
         int result;
 
-        result = number1+number2;
+        result = number1 + number2;
 
         System.out.println(result);
 
     }
+
 }
