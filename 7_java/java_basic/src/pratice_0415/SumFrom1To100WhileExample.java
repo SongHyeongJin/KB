@@ -7,4 +7,15 @@ package pratice_0415;
 * 1~100 합 : 5050
 * */
 public class SumFrom1To100WhileExample {
+
+    public static void main(String[] args) {
+        int i = 1;
+        int totalSum = 0;
+        while(i<=100){
+            totalSum += i;
+            i++;
+        }
+        System.out.println("1~" + (i-1) + " 합 :" + totalSum);
+    }
+
 }

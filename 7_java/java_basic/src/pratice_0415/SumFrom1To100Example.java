@@ -6,4 +6,12 @@ package pratice_0415;
 
  * */
 public class SumFrom1To100Example {
+    public static void main(String[] args) {
+        int totalSum = 0;
+        for (int i = 1; i <= 5; i++) {
+            // totalSum = totalSum + i;
+            totalSum += i;
+        }
+        System.out.println("1~100 합 : " + totalSum);
+    }
 }
