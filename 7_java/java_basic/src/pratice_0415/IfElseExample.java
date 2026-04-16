@@ -1,9 +1,10 @@
-package pratice_0415;
+package src.pratice_0415;
 
 public class IfElseExample {
     public static void main(String[] args) {
         int score = 85;
 //        int score = 93;
+
 
         //1. score가 85면 출력조건
         // 점수가 90보다 작습니다.

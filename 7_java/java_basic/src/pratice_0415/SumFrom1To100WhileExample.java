@@ -1,4 +1,4 @@
-package pratice_0415;
+package src.pratice_0415;
 
 /*
 * while문을사용하여1부터100까지의합을구하고, 그결과를출력하세요
@@ -16,4 +16,6 @@ public class SumFrom1To100WhileExample {
         }
         System.out.println("1~"+(i-1)+" 합 : "+sum);
     }
+
+
 }
