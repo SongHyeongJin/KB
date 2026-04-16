@@ -33,4 +33,12 @@ coverage
 *.sln
 *.sw?
 
+# IntelliJ
+.idea/
+
+# build output
+out/
+
+# IntelliJ module files
+*.iml
 *.tsbuildinfo
