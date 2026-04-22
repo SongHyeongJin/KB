@@ -7,15 +7,11 @@ public class StudentTodo {
     String name;
     String studentNo;
     int grade;
-    StudentTodo(String name, String studentNo, int grade){
-        this.name = name;
-        this.studentNo = studentNo;
-        this.grade =grade;
-    }
-    public void printInfo(){
-        System.out.printf("이름: %s\n",name);
-        System.out.printf("학번: %s\n",studentNo);
-        System.out.printf("학년: %d\n",grade);
+
+    void printInfo() {
+        System.out.printf("이름: %s\n", name);
+        System.out.printf("학번: %s\n", studentNo);
+        System.out.printf("학년: %d\n", grade);
         System.out.println();
     }
     // TODO 4: 학생 정보를 출력하는 printInfo() 메소드를 작성하세요.
