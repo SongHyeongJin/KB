@@ -15,8 +15,11 @@ public class MainTodo {
         // TODO 2: 인덱스 0 요소 삭제
         list.remove(0);
         // TODO 3: 남은 요소 출력
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+//        for (int i = 0; i < list.size(); i++) {
+//            System.out.println(list.get(i));
+//        }
+        for (String s : list){
+            System.out.println(s);
         }
     }
 }

@@ -14,6 +14,9 @@ public class MainTodo {
         list.add(30);
         // TODO 3: 크기와 요소 출력
         System.out.println(list.size());
-        System.out.println(list);
+//        System.out.println(list);
+        for (Integer i : list){
+            System.out.println(i);
+        }
     }
 }

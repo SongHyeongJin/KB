@@ -8,11 +8,19 @@ import java.util.List;
 public class MainTodo {
     public static void main(String[] args) {
         // TODO 1: 정수 리스트 생성 후 30, 10, 20 추가
-        int[] array = new int[]{30,10,20};
+//        int[] array = new int[]{30,10,20};
+        List<Integer> list = new ArrayList<>();
+        list.add(30);
+        list.add(10);
+        list.add(20);
         // TODO 2: 오름차순 정렬 후 출력
-        Arrays.sort(array);
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
+//        Arrays.sort(array);
+//        for (int i = 0; i < array.length; i++) {
+//            System.out.println(array[i]);
+//        }
+        list.sort(Comparator.naturalOrder());
+        for(Integer i : list){
+            System.out.println(i);
         }
     }
 }

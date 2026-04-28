@@ -17,19 +17,32 @@ class StudentTodo {
 public class MainTodo {
     public static void main(String[] args) {
         // TODO 2: StudentTodo 리스트 생성
-        StudentTodo[] studentTodo = new StudentTodo[3];
+//        StudentTodo[] studentTodo = new StudentTodo[3];
+        List<StudentTodo> list = new ArrayList<>();
         // TODO 3: 객체 3개 추가
-        studentTodo[0] = new StudentTodo("kim", 90);
-        studentTodo[1] = new StudentTodo("hong",70);
-        studentTodo[2] = new StudentTodo("gang", 95);
+//        studentTodo[0] = new StudentTodo("kim", 90);
+//        studentTodo[1] = new StudentTodo("hong",70);
+//        studentTodo[2] = new StudentTodo("gang", 95);
+        list.add(new StudentTodo("kim", 90));
+        list.add(new StudentTodo("hong", 70));
+        list.add(new StudentTodo("gang", 94));
         // TODO 4: 평균 점수 출력
+//        double avg=0;
+//        int sum = 0;
+//        for (int i = 0; i < studentTodo.length; i++) {
+//            sum+=studentTodo[i].score;
+//            avg = (double)sum/studentTodo.length;
+//
+//        }
+//        System.out.printf("평균: %.2f\n",avg);
         double avg=0;
-        int sum = 0;
-        for (int i = 0; i < studentTodo.length; i++) {
-            sum+=studentTodo[i].score;
-            avg = (double)sum/studentTodo.length;
-
+        int sum=0;
+        int studentNum=0;
+        for(StudentTodo stu : list){
+            sum+=stu.score;
+            studentNum++;
         }
+        avg = ((double) sum)/studentNum;
         System.out.printf("평균: %.2f\n",avg);
     }
 }

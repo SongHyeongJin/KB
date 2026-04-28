@@ -12,11 +12,14 @@ public class MainTodo {
         stack.push("셋째");
 
         // TODO 3: pop 하며 출력
-        while (true) {
+//        while (true) {
+//            System.out.println(stack.pop());
+//            if (stack.isEmpty()){
+//                return;
+//            }
+//        }
+        while (!stack.isEmpty()){
             System.out.println(stack.pop());
-            if (stack.isEmpty()){
-                return;
-            }
         }
 
     }
